@@ -12,25 +12,17 @@ const MainContainer = styled.div`
 
 const MainForm = styled.form`
   background-color: #ffffff;
-  padding: 2rem;
+  padding: 4rem;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   text-align: center;
+  display: flex;
+  flex-direction: column;
 
   h1 {
     font-size: 2rem;
+    margin-top: 0.5rem;
     color: #333333;
-  }
-
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-bottom: 2px solid #333333;
-    outline: none;
-    font-size: 1rem;
   }
 
   button[type="submit"] {
@@ -40,6 +32,7 @@ const MainForm = styled.form`
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     font-size: 1rem;
+    margin-top: 0.5rem;
   }
 
   button[type="login"] {
@@ -49,7 +42,17 @@ const MainForm = styled.form`
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     font-size: 1rem;
-    margin-top: 10px;
+    margin-top: 0.5rem;
+  }
+
+  button[type="upload"] {
+    background-color: #8b008b;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
   }
 `;
 
@@ -65,15 +68,21 @@ function MainPage() {
     navigate("/login");
   };
 
+  const handleUpload = () => {
+    navigate("/upload");
+  };
+
   return (
     <MainContainer>
       <MainForm onSubmit={handleSubmit}>
         <h1>알고먹자</h1>
         <button type="submit">방문하기</button>
-        <br />
         <button type="login" onClick={handleLogin}>
           {" "}
           로그인하기{" "}
+        </button>
+        <button type="upload" onClick={handleUpload}>
+          이미지 업로드하기
         </button>
       </MainForm>
     </MainContainer>
